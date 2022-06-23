@@ -5,6 +5,14 @@ const suggestionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    poster_path: {
+        type: String,
+        required: true
+    },
+    vote_average: {
+        type: Number,
+        required: true
+    },
     release_date: {
         type: String,
         required: true

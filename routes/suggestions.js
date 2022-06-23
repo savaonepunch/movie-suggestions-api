@@ -15,9 +15,17 @@ router.get('/', async (req, res) => {
 
 // Create a suggestion
 router.post('/', async (req, res) => {
+    suggestionsWithId = await Suggestion.find({
+        "id": req.body.id
+    })
+
+    if (suggestionsWithId.length) return res.status(409).json({ message: "Suggestion already exists" });
+
     const suggestion = new Suggestion({
         name: req.body.name,
         release_date: req.body.release_date,
+        poster_path: req.body.poster_path,
+        vote_average: req.body.vote_average,
         id: req.body.id
     })
 
@@ -46,6 +54,14 @@ router.patch('/:id', getSuggestion, async (req, res) => {
 
     if (req.body.id != null) {
         res.suggestion.id = req.body.id;
+    }
+
+    if (req.body.poster_path != null) {
+        res.suggestion.poster_path = req.body.poster_path;
+    }
+
+    if (req.body.vote_average != null) {
+        res.suggestion.vote_average = req.body.vote_average;
     }
 
     try {
