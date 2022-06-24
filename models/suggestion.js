@@ -17,6 +17,10 @@ const suggestionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    overview: {
+        type: String,
+        required: true
+    },
     id: {
         type: Number,
         required: true

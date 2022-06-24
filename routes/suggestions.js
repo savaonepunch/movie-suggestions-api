@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
         release_date: req.body.release_date,
         poster_path: req.body.poster_path,
         vote_average: req.body.vote_average,
+        overview: req.body.overview,
         id: req.body.id
     })
 
@@ -62,6 +63,10 @@ router.patch('/:id', getSuggestion, async (req, res) => {
 
     if (req.body.vote_average != null) {
         res.suggestion.vote_average = req.body.vote_average;
+    }
+
+    if (req.body.overview != null) {
+        res.suggestion.overview = req.body.overview;
     }
 
     try {
