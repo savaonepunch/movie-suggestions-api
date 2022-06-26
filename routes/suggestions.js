@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Suggestion = require('../models/suggestion');
+const Suggestion = require('../models/Suggestion');
 
 // Get all suggestions
 router.get('/', async (req, res) => {
